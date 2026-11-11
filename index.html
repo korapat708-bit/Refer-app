@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="th"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>ER Transfer Care</title>
+<title>ER CHA-AM Transfer Care</title>
 <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -56,7 +56,7 @@ function save(){const a=A();api({action:'saveAssessment',cid:P().id,hn:P().hn,se
 function gsel(l,k,o){const a=A();return `<div><label>${l}</label><select onchange="set('${k}',this.value)">${o.map(x=>`<option ${String(a[k])===String(x)?'selected':''}>${x}</option>`).join('')}</select></div>`}
 function inp(l,k,u){return `<div><label>${l}</label><input value="${A()[k]}" ${u?'type=number step=any':''} oninput="set('${k}',this.value)"></div>`}
 function home(){const c=s=>S.pts.filter(p=>p.st==s).length;
-return `<header><b>ER Transfer Care</b><small>โรงพยาบาลชะอำ · ${new Date().toLocaleDateString('th-TH',{day:'numeric',month:'short',year:'numeric'})}</small></header><main>
+return `<header><b>ER CHA-AM Transfer Care</b><small>โรงพยาบาลชะอำ · ${new Date().toLocaleDateString('th-TH',{day:'numeric',month:'short',year:'numeric'})}</small></header><main>
 <button class="btn g w" onclick="go('reg')">+ ลงทะเบียนส่งต่อผู้ป่วย</button><div class="stats" style="margin:12px 0">
 <div class="stat" style="background:#e3eefc"><b>${c('กำลังนำส่ง')}</b>กำลังส่งต่อ</div><div class="stat" style="background:#e2f5ec"><b>${c('ส่งมอบแล้ว')}</b>ส่งมอบแล้ว</div><div class="stat" style="background:#fdf0dd"><b>${c('รอการนำส่ง')}</b>รอการนำส่ง</div></div>
 <h3>ผู้ป่วยที่กำลังส่งต่อ</h3>${list(S.pts.filter(p=>p.st!='ส่งมอบแล้ว'))}<button class="btn o w" style="margin-top:12px" onclick="testSheets()">ตรวจสอบการเชื่อมต่อ Sheets</button>${S.diag?`<div class="card" style="margin-top:8px;font-size:13px">${esc(S.diag)}</div>`:''}</main>`}
